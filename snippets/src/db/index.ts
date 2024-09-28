@@ -9,3 +9,5 @@ db.snippet.create({
   }
 })
 
+export default db;
+
