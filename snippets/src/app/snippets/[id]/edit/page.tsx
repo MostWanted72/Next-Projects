@@ -20,7 +20,6 @@ export default async function SnippetEditPage(props: Props) {
     notFound();
   }
 
-  console.log(snippet);
   return (
     <div>
       <SnippetEditForm snippet={snippet} />
