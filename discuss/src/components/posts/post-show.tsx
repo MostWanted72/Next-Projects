@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default async function PostShow(props: Props) {
+  await new Promise((r) => setTimeout(r, 2000));
   const postId = props.postId;
 
   const post = await db.post.findFirst({
