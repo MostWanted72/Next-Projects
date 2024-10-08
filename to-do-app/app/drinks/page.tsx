@@ -3,7 +3,6 @@ import DrinksList from "@/components/DrinkList";
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
 
 const fetchDrinks = async () => {
-  await new Promise((r) => setTimeout(r, 1000));
   const response = await fetch(url);
 
   if (!response.ok) {
