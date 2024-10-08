@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import type { PluginUtils } from "tailwindcss/types/config"
+import typographyPlugin from '@tailwindcss/typography'
+import daisyui from 'daisyui';
 
 const config: Config = {
   content: [
@@ -12,8 +15,15 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      typography: ({ theme }: PluginUtils) => ({ // <-- Works too
+        myTheme: {
+          css: {
+            "--tw-prose-body": theme("colors.blue.800"),
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [typographyPlugin, daisyui],
 };
 export default config;
