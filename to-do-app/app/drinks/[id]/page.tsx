@@ -22,7 +22,6 @@ const fetchSingleDrink = async (id: string) => {
 export default async function SingleDrinkPage({ params }: Props) {
   const data = await fetchSingleDrink(params.id);
   const { strDrink, strDrinkThumb }: SingleDrink = data?.drinks[0];
-  console.log("check this part", strDrinkThumb);
 
   return (
     <div>
