@@ -1,7 +1,11 @@
+import TaskForm from "@/components/TaskForm";
+import TaskList from "@/components/TaskList";
+
 export default function TasksPage() {
   return (
-    <div>
-      <h1 className="text-7xl">Tasks Page</h1>
+    <div className="max-w-lg">
+      <TaskForm />
+      <TaskList />
     </div>
   );
 }

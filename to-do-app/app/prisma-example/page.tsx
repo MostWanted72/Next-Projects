@@ -1,11 +1,5 @@
 import prisma from "@/utills/db";
-
-interface Task {
-  id: string;
-  content: string;
-  completed: boolean;
-  createdAt: Date;
-}
+import { Task } from "@/utills/GlobalTypes";
 
 const prismaHandler = async (): Promise<Task[]> => {
   await prisma.task.create({
