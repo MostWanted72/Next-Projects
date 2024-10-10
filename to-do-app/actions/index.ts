@@ -23,3 +23,9 @@ export const createTask = async (FormData: FormData) => {
   await prisma.task.create({ data: { content }})
   revalidatePath('/tasks')
 }
+
+export const deleteTask = async (id: string) => {
+  await prisma.task.delete({ where: { id }})
+  console.log('check this part', process.env.NODE_ENV)
+  revalidatePath('/tasks')
+}
