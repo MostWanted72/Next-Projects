@@ -1,7 +1,7 @@
 import { Task } from "@/utills/GlobalTypes";
 import Link from "next/link";
-import DeleteForm from "./DeleteForm";
 import { fetchAllTasks } from "@/actions";
+import DeleteTask from "./DeleteForm";
 
 export default async function TaskList() {
   const tasks: Task[] = await fetchAllTasks();
@@ -25,9 +25,9 @@ export default async function TaskList() {
         </h2>
         <div className="flex gap-6 items-center">
           <Link href={`/tasks/${task.id}`} className="btn btn-accent btn-xs">
-            edit
+            Edit
           </Link>
-          <DeleteForm id={task.id} />
+          <DeleteTask id={task.id} />
         </div>
       </li>
     ));

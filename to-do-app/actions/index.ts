@@ -11,17 +11,28 @@ export const fetchAllTasks = async (): Promise<Task[]> => {
   return allTasks;
 }
 
-export const fetchTask = async (id: string ): Promise<Task> => {
+export const fetchTask = async (id: string ): Promise<Task | undefined>  => {
   const task = await prisma.task.findUnique({
-    where: { id}
+    where: { id }
   })
-  return task;
+  if (task) {
+    return task;
+  }
 }
 
-export const createTask = async (FormData: FormData) => {
-  const content = await FormData.get('content');
-  await prisma.task.create({ data: { content }})
-  revalidatePath('/tasks')
+interface formStateType {
+  message: boolean,
+}
+
+export const createTask = async (formState: formStateType, FormData: FormData): Promise<formStateType>  => {
+  const content = FormData.get('content');
+
+  if (typeof content === 'string') {
+    await prisma.task.create({ data: { content }})
+    revalidatePath('/tasks')
+    return { message: !formState.message };
+  }
+  return { message: false}
 }
 
 export const deleteTask = async (id: string) => {
