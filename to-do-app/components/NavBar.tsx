@@ -34,10 +34,7 @@ export default async function NavBar() {
         <ThemeSwitcher />
         {!session ? (
           <div className="w-fit">
-            <Link
-              className="flex gap-4 btn btn-primary"
-              href={paths.auth.login}
-            >
+            <Link className="flex gap-4 btn btn-accent" href={paths.auth.login}>
               Login
             </Link>
           </div>

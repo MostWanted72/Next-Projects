@@ -20,9 +20,20 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <button onClick={toggleTheme} className="btn btn-primary btn-sm">
-      Switch to {theme === "light" ? "dark" : "light"} theme
-    </button>
+    <div className="form-control gap-4">
+      <label className="label cursor-pointer gap-4">
+        <span className="label-text">
+          {" "}
+          Switch to {theme === "light" ? "dark" : "light"} theme
+        </span>
+        <input
+          type="checkbox"
+          className="toggle"
+          onClick={toggleTheme}
+          defaultChecked={theme === "light"}
+        />
+      </label>
+    </div>
   );
 };
 
