@@ -39,7 +39,7 @@ export default async function NavBar() {
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="flex gap-4 items-center">
             <div>{session.user.name}</div>
             <Link
               className="flex gap-4 btn btn-secondary"
