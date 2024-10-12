@@ -13,7 +13,6 @@ const fetchDrinks = async () => {
 
 export default async function DrinksPage() {
   const drinks = await fetchDrinks();
-  console.log(drinks);
   return (
     <div>
       <DrinksList drinks={drinks.drinks} />

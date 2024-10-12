@@ -1,7 +1,7 @@
 import { Task } from "@/utills/GlobalTypes";
-import Link from "next/link";
 import { fetchAllTasks } from "@/actions";
 import DeleteTask from "./DeleteForm";
+import EditPopover from "./EdotPopover";
 
 export default async function TaskList() {
   const tasks: Task[] = await fetchAllTasks();
@@ -24,9 +24,7 @@ export default async function TaskList() {
           {task.content}
         </h2>
         <div className="flex gap-6 items-center">
-          <Link href={`/tasks/${task.id}`} className="btn btn-accent btn-xs">
-            Edit
-          </Link>
+          <EditPopover task={task} />
           <DeleteTask id={task.id} />
         </div>
       </li>
