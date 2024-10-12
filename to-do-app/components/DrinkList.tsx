@@ -1,3 +1,4 @@
+import paths from "@/utills/paths";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +16,10 @@ export default function DrinksList({ drinks }: Props) {
   const renderDrinks = () =>
     drinks.map((drink) => (
       <li key={drink.idDrink}>
-        <Link href={`/drinks/${drink.idDrink}`} className="text-xl font-medium">
+        <Link
+          href={paths.drinks.byId(drink.idDrink)}
+          className="text-xl font-medium"
+        >
           <div className="relative h-48 mb-4">
             <Image
               sizes={`(max-width:768px) 100vw, (max-width:1200px) 50vw`}

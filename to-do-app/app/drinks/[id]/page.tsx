@@ -1,3 +1,4 @@
+import paths from "@/utills/paths";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +26,7 @@ export default async function SingleDrinkPage({ params }: Props) {
 
   return (
     <div>
-      <Link href="/drinks" className="btn btn-primary mt-8 mb-12">
+      <Link href={paths.drinks.all} className="btn btn-primary mt-8 mb-12">
         Back to drinks
       </Link>
       <Image
