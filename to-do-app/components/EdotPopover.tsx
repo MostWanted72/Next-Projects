@@ -40,23 +40,31 @@ export default function EditPopover({ task }: Props) {
             <div className="text-yellow-400 p-4">
               {formState.errors?.join(" ")}
             </div>
-            <div className="flex gap-2 justify-end">
-              <button
-                type="submit"
-                name="close"
-                value="close"
-                className="mt-2 btn btn-secondary btn-xs"
-              >
-                Close
-              </button>
-              <button
-                type="submit"
-                name="update"
-                value="update"
-                className="mt-2 btn btn-primary btn-xs"
-              >
-                Update
-              </button>
+            <div className="flex gap-2 justify-between items-center">
+              <input
+                name="taskCompleted"
+                type="checkbox"
+                className="toggle toggle-success toggle-sm"
+                defaultChecked={task.completed}
+              />
+              <div className="gap-2 flex">
+                <button
+                  type="submit"
+                  name="close"
+                  value="close"
+                  className="mt-2 btn btn-secondary btn-xs"
+                >
+                  Close
+                </button>
+                <button
+                  type="submit"
+                  name="update"
+                  value="update"
+                  className="mt-2 btn btn-primary btn-xs"
+                >
+                  Update
+                </button>
+              </div>
             </div>
           </form>
         </div>

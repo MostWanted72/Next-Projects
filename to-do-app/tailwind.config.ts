@@ -25,5 +25,8 @@ const config: Config = {
     },
   },
   plugins: [typographyPlugin, daisyui],
+  daisyui: {
+    themes: ['light', 'dark'],
+  },
 };
 export default config;

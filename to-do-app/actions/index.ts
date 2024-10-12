@@ -29,7 +29,8 @@ interface formStateType {
 }
 
 const createTaskSchema = z.object({
-  content: z.string().min(3).regex(/^[A-Za-z ]+$/, { message: 'Must be lowercase letters or dashes without spaces'})
+  content: z.string().min(3).regex(/^[A-Za-z ]+$/, { message: 'Must be lowercase letters or dashes without spaces'}),
+  completed: z.optional(z.boolean())
 })
 
 // create task
@@ -70,6 +71,7 @@ export const updateTask = async (id: string, formState: updateFormStateType, For
   const content = FormData.get('content');
   const closeTriggered = FormData.get('close');
   const updateTriggered = FormData.get('update');
+  const taskCompleted = FormData.get('taskCompleted');
   const result = createTaskSchema.safeParse({ content })
 
   if (closeTriggered === 'close') {
@@ -85,7 +87,7 @@ export const updateTask = async (id: string, formState: updateFormStateType, For
       if (result.success) {
         await prisma.task.update({ 
           where: { id },
-          data: { content: result.data.content }
+          data: { content: result.data.content, completed: taskCompleted === 'on'}
         })
       }
     } catch (err) {

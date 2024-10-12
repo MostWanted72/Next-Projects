@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const links = [
   { href: "/client", label: "client" },
@@ -24,6 +25,7 @@ export default function NavBar() {
           Next.js
         </Link>
         <ul className="menu menu-horizontal md:ml-8">{renderLinks()}</ul>
+        <ThemeSwitcher />
       </div>
     </nav>
   );
